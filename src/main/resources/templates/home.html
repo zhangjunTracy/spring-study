@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Spring Security Example</title>
+</head>
+<body>
+	<h1 id="d">Welcome!</h1>
+	<hr />
+	<button id="que">确定</button>
+	<hr />
+	<button id="q">确定22</button>
+	<p>123546</p>
+</body>
+<script type="text/javascript"
+	th:src="@{/webjars/jquery/1.11.3/jquery.min.js}"></script>
+<script>
+	$("#que").click(function() {
+		$.ajax({
+			url : '/test1',
+			type : 'get',
+			success : function(data) {
+				if (data.success) {
+					console.info(data.succeResData)
+					$("#d").data("dd", data.succeResData)
+					console.info($("#d").data("dd"))
+					var aa = $("#d").data("dd")
+					console.info(aa)
+					var json = JSON.stringify(aa);
+					console.info(json)
+				}
+			}
+
+		});
+	}),
+	$("#q").click(function() {
+		var aa = $("#d").data("dd")
+		var json = JSON.stringify(aa);
+		var classId="321111111111111111111";
+		$.ajax({
+			url : '/test2?classId='+classId,
+			contentType : "application/json ; charset=utf-8",
+			type : 'post',
+			data:json,
+			dataType : 'json', 
+			success : function(data) {
+				if (data.success) {
+					alert(111111111)
+				}
+			}
+
+		});
+	})
+</script>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="/template/head::head">
+    </head>
+    <body>
+        <div th:replace="/template/header::header">
+        </div>
+        <span shiro:authenticated=""></span>
+        <div class="container" style="padding-top:10px;">
+            <!--
+            <div class="jumbotron">
+            <h1>欢迎使用-云校订阅号!</h1>
+            <p>
+            ...
+            </p>
+            </div>
+            -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <span>我的信息</span>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="btn-group pull-right">
+                                <a class="btn btn-default btn-xs"><i class="glyphicon glyphicon-menu-left"></i></a>
+                                <a class="btn btn-default btn-xs" th:href="@{/}"><i class="glyphicon glyphicon-home"></i></a>
+                                <a class="btn btn-default btn-xs" th:href="@{/member/user/idx}"><i class="glyphicon glyphicon-user"></i></a>
+                                <a class="btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
+                                <a class="btn btn-default btn-xs" th:href="@{#}" onclick="window.location.reload();"><i class="glyphicon glyphicon-refresh"></i></a>
+                                <a class="btn btn-default btn-xs"><i class="glyphicon glyphicon-menu-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <span class="hidden" id="faceImgWrapper"><shiro:principal property="faceImg"/></span><img class="img-circle" id="faceImge" width="110" height="110" src="" alt="头像"/><script type="text/javascript" th:inline="javascript">
+                                document.getElementById('faceImge').src = 'http://yxcsp.91yunxiao.com/yxcsp/pull?fileName=' + document.getElementById('faceImgWrapper').innerHTML;
+                            </script>
+                        </div>
+                        <div class="col-xs-8">
+                            <label>姓&nbsp;&nbsp;&nbsp;名:</label>
+                            <shiro:principal property="nickname"/>
+                        </div>
+                        <div class="col-xs-8">
+                            <label>用户名:</label>
+                            <shiro:principal property="username"/>
+                        </div>
+                        <div class="col-xs-8">
+                            <label>手机号:</label>
+                            <shiro:principal property="mobile"/>
+                        </div>
+                        <div class="col-xs-8">
+                            <label>订阅号:</label>
+                            <a th:href="@{/member/subAccount/lst}"><shiro:principal property="subAccountCount"/><span>,&nbsp;</span></a>
+                            <label>消息:</label>
+                            <a th:href="@{/member/subAccountMessage/lst/all}"><shiro:principal property="subAccountMessageCount"/><span>,&nbsp;</span></a>
+                            <label>粉丝:</label>
+                            <shiro:principal property="subAccountFollowCount"/>
+                        </div>
+                    </div>
+                </div>
+            </div><!--
+            <hr/>
+            <div th:replace="/template/member/subAccountPanel::subAccountPanel(${subAccountLst})">
+            </div><hr/>
+            -->
+            <div class="panel panel-default" style="margin-top: 10px;">
+                <div class="panel-heading">
+                    <span>云校热文</span>
+                </div>
+                <!--
+                <div class="panel-body">
+                </div>
+                -->
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>标题</th>
+                            <th>时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item : ${subAccountMessagePage.content}">
+                            <td th:text="${item.id}"></td>
+                            <td><a href="#" th:href="@{/mobile/account/message/viw/}+${item.id}" target="_blank"><b><span th:text="${item.title}">标题</span></b></a></td>
+                            <td th:text="${item.lastModifiedDate}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="panel-footer">
+                    <ul class="pager">
+                        <li class="previous" th:if="${subAccountMessagePage.hasPrevious()}"><a href="#" th:href="@{/?(page=${subAccountMessagePage.previousPageable().getPageNumber()})}"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+                        <li class="next" th:if="${subAccountMessagePage.hasNext()}"><a href="#" th:href="@{/?(page=${subAccountMessagePage.nextPageable().getPageNumber()})}">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div th:replace="/template/js::js">
+            </div>
+        </div>
+        <div th:replace="/template/footer::footer">
+        </div>
+    </body>
+</html>
