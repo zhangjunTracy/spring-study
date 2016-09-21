@@ -7,8 +7,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import org.apache.commons.lang.StringUtils;
-
 public class TaskServiceTest {
 
     public static void main(String[] args) {
@@ -29,15 +27,17 @@ public class TaskServiceTest {
         for (Future<String> fs : resultList) {
             try {
 
-                while (!fs.isDone()) {
-                    Thread.sleep(100);
-                    i++;
-                    // 等任务完成
-                    System.out.println(StringUtils.repeat(".", i));
-                }
+                // while (!fs.isDone()) {
+                // Thread.sleep(100);
+                // i++;
+                // // 等任务完成
+                // System.out.println(StringUtils.repeat(".", i));
+                // }
                 System.out.println("是否完成" + fs.isDone() + "===" + (i++));
-
+                // fs.get() 堵塞住线程 知道结果完成
                 System.out.println(fs.get()); // 打印各个线程（任务）执行的结果
+                // 中断线程 中断任务
+                // fs.cancel(true);
 
             } catch (InterruptedException e) {
                 e.printStackTrace();

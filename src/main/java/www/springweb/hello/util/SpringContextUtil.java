@@ -1,49 +1,30 @@
 package www.springweb.hello.util;
 
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public final class SpringContextUtil implements ApplicationContextAware {
+/**
+ * SpringContextUtil
+ * 
+ * @author Administrator
+ * 
+ */
+public class SpringContextUtil implements ApplicationContextAware {
 
-    private ApplicationContext context;
+    private static ApplicationContext applicationContext;
 
-    private static SpringContextUtil springContextUtil;
-
-    private SpringContextUtil() {
-    }
-
-    public void setApplicationContext(
-            final ApplicationContext applicationContext) {
-        SpringContextUtil.getInstance().setContext(applicationContext);
-    }
-
-    private ApplicationContext getApplicationContext() {
-        return context;
-    }
-
-    private void setContext(final ApplicationContext pContext) {
-        this.context = pContext;
-    }
-
-    private static SpringContextUtil getInstance() {
-        if (springContextUtil == null) {
-            springContextUtil = new SpringContextUtil();
-        }
-        return springContextUtil;
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        SpringContextUtil.applicationContext = applicationContext;
     }
 
     public static ApplicationContext getCtx() {
-        return SpringContextUtil.getInstance().getApplicationContext();
+        return SpringContextUtil.applicationContext;
     }
 
-    public static <T> T getBean(Class<T> beanType) {
-        T t = getCtx().getBean(beanType);
-        return t;
+    public static <T> T getBean(Class<T> t) {
+        return SpringContextUtil.applicationContext.getBean(t);
     }
 
-    @SuppressWarnings("unchecked")
-    public static <T> T getBean(String beanId) {
-        T t = (T) getCtx().getBean(beanId);
-        return t;
-    }
 }
