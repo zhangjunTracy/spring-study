@@ -16,6 +16,17 @@ public class User extends IdEntity {
     @Column(name = "password", nullable = false, length = 32)
     private String password;
 
+    @Column
+    private String mobile;
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
     public String getUsername() {
         return username;
     }

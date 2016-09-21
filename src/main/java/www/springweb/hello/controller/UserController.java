@@ -3,6 +3,8 @@ package www.springweb.hello.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -105,6 +107,15 @@ public class UserController {
     @RequestMapping("test4")
     public List<User> test4() {
 
+        CompletableFuture<User> u = userRepository.findById("1");
+
+        if (u.isDone()) {
+
+        }
+        Stream<User> findAllByCustomQueryAndStream = userRepository.findAllByCustomQueryAndStream();
+        findAllByCustomQueryAndStream.forEach(a -> {
+
+        });
         return userRepository.findAll();
 
     }
