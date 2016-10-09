@@ -9,10 +9,14 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name = "json_user")
-public class User extends IdEntity {
+@Table(name = "user")
+public class User extends BaseEntity {
+
+    private static final long serialVersionUID = 1L;
+
     @Column(name = "username", nullable = false, length = 32)
     private String username;
+
     @Column(name = "password", nullable = false, length = 32)
     private String password;
 
