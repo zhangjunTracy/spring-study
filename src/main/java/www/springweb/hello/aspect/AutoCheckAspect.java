@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class AutoCheckAspect {
 
     /**
-     * 需要自动检测的方法
+     * 需要自动检测的方法 先去掉
      * 
      * @param joinPoint
      */
