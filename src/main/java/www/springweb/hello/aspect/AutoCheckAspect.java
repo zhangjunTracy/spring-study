@@ -22,7 +22,8 @@ public class AutoCheckAspect {
      */
     @Before("@annotation(io.swagger.annotations.ApiOperation)")
     private void autoCheck(JoinPoint joinPoint) {
-        // Object[] args = joinPoint.getArgs();
+        // 切入点的所有参数
+        Object[] args = joinPoint.getArgs();
         // for (Object arg : args) {
         // if (arg instanceof Api3Model) {
         // Api3Model api3Model = (Api3Model) arg;
