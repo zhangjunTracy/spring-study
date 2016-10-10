@@ -1,12 +1,15 @@
 package springweb.annotation;
 
+/**
+ * 
+ * @author Mr.Zhang
+ * @Date 2016年10月10日
+ * @Email zhangjun150429@qq.com
+ */
 public class Demo {
 
     public static void main(String[] args) {
-        Student student = new Student();
-
-        System.out.println(student.getName());
-
+        Util.info(Student.class);
     }
 
 }
