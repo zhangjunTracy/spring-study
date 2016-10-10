@@ -1,7 +1,6 @@
 package www.springweb.hello.repository;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Future;
 import java.util.stream.Stream;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,8 +18,10 @@ import www.springweb.hello.entity.User;
  */
 public interface UserRepository extends JpaRepository<User, String> {
 
-    @Async
-    Future<User> findByUsername(String username);
+    User findByUsername(String username);
+
+    // @Async
+    // Future<User> findByUsername(String username);
 
     @Async
     CompletableFuture<User> findById(String id);
@@ -28,7 +29,7 @@ public interface UserRepository extends JpaRepository<User, String> {
     @Async
     ListenableFuture<User> findByMobile(String mobile);
 
-    //返回流
+    // 返回流
     @Query("select u from User u")
     Stream<User> findAllByCustomQueryAndStream();
 
