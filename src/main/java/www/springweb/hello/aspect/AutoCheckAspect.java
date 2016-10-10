@@ -2,7 +2,6 @@ package www.springweb.hello.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,7 +19,7 @@ public class AutoCheckAspect {
      * 
      * @param joinPoint
      */
-    @Before("@annotation(io.swagger.annotations.ApiOperation)")
+    // @Before("@annotation(io.swagger.annotations.ApiOperation)")
     private void autoCheck(JoinPoint joinPoint) {
         // 切入点的所有参数
         Object[] args = joinPoint.getArgs();

@@ -33,7 +33,7 @@ public class AuthorizationAspect {
      * 
      * @param joinPoint
      */
-    @Before("@annotation(com.china08.apiv3.annotations.Api3Auth)")
+    @Before("@annotation(www.springweb.hello.annotation.Auth)")
     private void apiAuth(JoinPoint joinPoint) {
         // LOGGER.info("认证开始" + StringUtils.repeat(".", 25));
         // AuthorizationInfo info = AuthorizationUtil.getAuthorizationInfo();
