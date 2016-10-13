@@ -5,6 +5,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingDeque;
 
+import org.junit.Test;
+
 /**
  * 
  * @author Mr.Zhang
@@ -13,7 +15,8 @@ import java.util.concurrent.LinkedBlockingDeque;
  */
 public class BlockingQueueDemo {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         BlockingQueue<Integer> queue = new LinkedBlockingDeque<Integer>(5);
 
         ExecutorService executorService = Executors.newFixedThreadPool(20);

@@ -6,6 +6,8 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Test;
+
 /**
  * BlockingQueue
  * 
@@ -15,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class BlockingQueueTest {
 
-    // @Test
+    @Test
     public void test() {
         try {
 
@@ -53,7 +55,8 @@ public class BlockingQueueTest {
 
     }
 
-    public static void main(String[] args) throws Exception {
+    @Test
+    public void test1() throws Exception {
         BlockingQueue<Integer> b = new ArrayBlockingQueue<>(10);
 
         Thread thread = new Thread(() -> {

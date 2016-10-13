@@ -1,5 +1,7 @@
 package springweb.ThreadTest;
 
+import org.junit.Test;
+
 public class JoinTest implements Runnable {
 
     public static int a = 0;
@@ -11,7 +13,8 @@ public class JoinTest implements Runnable {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    @Test
+    public void test() throws Exception {
         Runnable r = new JoinTest();
         Thread t = new Thread(r);
         t.start();

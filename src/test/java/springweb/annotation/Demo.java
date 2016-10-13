@@ -1,5 +1,7 @@
 package springweb.annotation;
 
+import org.junit.Test;
+
 /**
  * 
  * @author Mr.Zhang
@@ -8,7 +10,8 @@ package springweb.annotation;
  */
 public class Demo {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         Util.info(Student.class);
     }
 
