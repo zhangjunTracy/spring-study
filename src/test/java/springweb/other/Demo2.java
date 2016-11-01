@@ -9,7 +9,7 @@ public class Demo2 {
 
         int data[] = { 9, 8, 1, 2, 2, 1, 3, 7, 3, 7 };
         int temp = 0;
-        // 第一次疑惑的结果
+        // 第一次^的结果
         for (int i = 0; i < data.length; i++) {
             temp ^= data[i];
         }
