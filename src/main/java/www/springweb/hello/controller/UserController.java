@@ -12,9 +12,11 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate.ConfirmCallback;
 import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import www.springweb.hello.entity.User;
@@ -106,6 +108,40 @@ public class UserController {
     @ResponseBody
     @RequestMapping("test4")
     public List<User> test4() {
+
+        CompletableFuture<User> u = userRepository.findById("1");
+
+        if (u.isDone()) {
+
+        }
+        Stream<User> findAllByCustomQueryAndStream = userRepository.findAllByCustomQueryAndStream();
+        findAllByCustomQueryAndStream.forEach(a -> {
+
+        });
+        return userRepository.findAll();
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "test5", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public List<User> test5() {
+
+        CompletableFuture<User> u = userRepository.findById("1");
+
+        if (u.isDone()) {
+
+        }
+        Stream<User> findAllByCustomQueryAndStream = userRepository.findAllByCustomQueryAndStream();
+        findAllByCustomQueryAndStream.forEach(a -> {
+
+        });
+        return userRepository.findAll();
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "test5", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public List<User> test6() {
 
         CompletableFuture<User> u = userRepository.findById("1");
 
