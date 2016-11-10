@@ -92,7 +92,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping("test3")
+    @RequestMapping(value = "test3", name = "ttt")
     public String test3() {
         User user = null;
         for (int i = 0; i < 5; i++) {
@@ -140,7 +140,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "test5", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "test5", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<User> test6() {
 
         CompletableFuture<User> u = userRepository.findById("1");
