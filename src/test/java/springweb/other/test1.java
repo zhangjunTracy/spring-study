@@ -9,6 +9,9 @@ public class test1 {
         Integer c = 300;
         Integer d = 300;
 
+        System.out.println(a == b);
+        System.out.println(c == d);
+
         Integer integer;// -XX:AutoBoxCacheMax=<size>} 调解
         Byte aByte;//
 
@@ -23,6 +26,12 @@ public class test1 {
         Double double1;
 
         Boolean boolean1;
+
+        // Integer g = Integer.valueOf(10); // under the hood
+        Integer f = 10; // autoboxing
+        Integer g = new Integer("10");// Constructs
+
+        System.out.println(f == g);
 
     }
 
