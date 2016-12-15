@@ -17,8 +17,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import www.springweb.hello.annotation.Auth;
 import www.springweb.hello.entity.User;
 import www.springweb.hello.repository.UserRepository;
 import www.springweb.hello.util.ResponseBodyPayload;
@@ -36,6 +38,15 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @ResponseBody
+    @RequestMapping(value = { "", "index" })
+    @Auth
+    public String test0() {
+
+        return "Hello World";
+
+    }
 
     @RequestMapping("test")
     public String test() {
@@ -105,10 +116,12 @@ public class UserController {
 
     }
 
+    @Auth
     @ResponseBody
     @RequestMapping("test4")
-    public List<User> test4() {
+    public List<User> test4(@RequestParam(value = "json", defaultValue = "10", required = false) String json) {
 
+        System.out.println(json + "===============");
         CompletableFuture<User> u = userRepository.findById("1");
 
         if (u.isDone()) {

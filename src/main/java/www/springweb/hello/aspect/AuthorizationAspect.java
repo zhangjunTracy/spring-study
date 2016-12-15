@@ -17,14 +17,13 @@ public class AuthorizationAspect {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthorizationAspect.class);
 
-    // @Autowired
-    // private YxAppLoginStatusRepositor appLoginStatusRepository;
     /**
      * 对于重复的切点,可以使用@Pointcut进行定义, 然后在通知注解内引用.
      * 引用切点@Before("AuthorizationAspect.anyPublicOperation1()") 如果在同一个类下可以省略类名
      * 这只是定义一个切入点，方便各种通知的引用，这个方法是没有实际意义的
      */
-    @Pointcut("execution(public * *(..))")
+    // 指定UserController下的所有的方法
+    @Pointcut("execution(* www.springweb.hello.controller.UserController.*(..))")
     private void anyPublicOperation1() {
     }
 
@@ -35,21 +34,21 @@ public class AuthorizationAspect {
      */
     @Before("@annotation(www.springweb.hello.annotation.Auth)")
     private void apiAuth(JoinPoint joinPoint) {
-        // LOGGER.info("认证开始" + StringUtils.repeat(".", 25));
-        // AuthorizationInfo info = AuthorizationUtil.getAuthorizationInfo();
-        // LOGGER.info(info.toString());
-        // LOGGER.info(joinPoint.getTarget().getClass().getName() + "." +
-        // joinPoint.getSignature().getName() + "("
-        // + Arrays.asList(joinPoint.getArgs()) + ")");
-        // Integer count =
-        // appLoginStatusRepository.countByUsernameAndAuthCode(info.getUsername(),
-        // info.getAuthcode());
-        // if (count != 0) {
-        // LOGGER.info("认证成功" + StringUtils.repeat(".", 25));
-        // info.setAuthenticated(true);
-        // } else {
-        // LOGGER.error("认证失败" + StringUtils.repeat(".", 25));
-        // throw new ApiException(HttpStatus.UNAUTHORIZED, "认证失败");
-        // }
+
+        System.out.println("Hello world for aspect");
+
+    }
+
+    @Before("AuthorizationAspect.anyPublicOperation1()")
+    private void apiAuth1(JoinPoint joinPoint) {
+
+        // 获取连接点的参数
+        Object[] strings = joinPoint.getArgs();
+        for (Object object : strings) {
+            System.out.println("==========:" + object);
+        }
+
+        System.out.println("Hello world for aspect111111111111");
+
     }
 }
