@@ -1,5 +1,7 @@
 package springweb.other;
 
+import java.util.function.Function;
+
 import org.junit.Test;
 
 public class Demo {
@@ -58,6 +60,22 @@ public class Demo {
          * 任何数与-1^ ==任何数取反 去绝对值 简化
          */
         System.out.println(((f ^ i) - i));
+    }
+
+    @Test
+    public void test2() {
+        // compose 函数先执行参数，然后执行调用者，而 andThen 先执行调用者，然后再执行参数。
+
+        Function<Integer, Integer> times2 = e -> e * 2;
+
+        Function<Integer, Integer> squared = e -> e * e;
+
+        // 4*4 * 2
+        System.out.println(times2.compose(squared).apply(4));
+
+        // 2*4 *8
+        System.out.println(times2.andThen(squared).apply(4));
+
     }
 
 }
