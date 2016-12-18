@@ -18,7 +18,7 @@ import springweb.jdk8.Person;
  */
 public class ComparableAndComparator {
     /**
-     * Comparable可排序的 若一个类实现了该接口意味着该类支持排序. 若一个类实现了Comparable接口，就意味着“该类支持排序”。
+     * Comparable可排序的 若一个类实现了该接口意味着该类支持排序.
      * 如果有一个实现Comparable接口的类的对象的List或数组,则该List 或数组可以通过 Collections.sort或
      * Arrays.sort进行排序.如List<Integer>(Integer String已经默认实现了Comparable接口)
      * 用于一个对象的不同实例去比较.Comparable接口只有一个方法 public int compareTo(T o);返回值<0 =0 >0
@@ -37,7 +37,6 @@ public class ComparableAndComparator {
             list.add(i + new Random().nextInt(20));
         }
         System.out.println(list);
-
         // 不需要提供额外比较器 因为Integer默认已经实现了Comparable接口
         Collections.sort(list);
         System.out.println(list);
