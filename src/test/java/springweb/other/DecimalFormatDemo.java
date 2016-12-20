@@ -20,7 +20,7 @@ public class DecimalFormatDemo {
         float b = a / 3;
         System.out.println(b);
         // 取整数位 没有返回0
-        System.out.println(new DecimalFormat("0").format(b));
+        System.out.println(new DecimalFormat("0").format(22.96));
 
         // 0.00 表示四舍五入保留两位小数 如果不够用0补
         // 取整数位和两位小数
