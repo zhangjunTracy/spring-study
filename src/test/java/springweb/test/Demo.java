@@ -2,10 +2,13 @@ package springweb.test;
 
 public class Demo {
     public static void main(String[] args) {
-        String string = "abcdefg";
-        String string2 = "cde";
-        System.out.println(string.indexOf(string2));
+        // 封装类 引用
+        Long long1 = null;
+        // 基本数据类型 值
+        long long2 = 0l;
 
+        Long l1 = 1l;
+        Long l2 = 1l;
     }
 
 }
