@@ -9,6 +9,11 @@ public class Demo {
 
         Long l1 = 1l;
         Long l2 = 1l;
+
+        String s = "Hello";
+        s = s + " World!";
+        System.out.println(s);
+
     }
 
 }
