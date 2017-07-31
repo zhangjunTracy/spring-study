@@ -13,7 +13,7 @@ public class Demo {
         String s = "Hello";
         s = s + " World!";
         System.out.println(s);
-
+        "12345897".substring(0, 12);
     }
 
 }
