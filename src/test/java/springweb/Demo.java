@@ -29,7 +29,7 @@ public class Demo {
         Map<String, String> map = new HashMap<String, String>();
         map.put("key", "2ef80a528f8f4040ba34c91ef314ef9a");
         map.put("userid", "ddd");
-        map.put("info", ",,,");
+        map.put("info", "来个校花");
 
         ObjectMapper mapper = new ObjectMapper();
         String jsonStr = mapper.writeValueAsString(map);
