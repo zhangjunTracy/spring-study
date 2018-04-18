@@ -22,7 +22,7 @@ public class InitDataSerivce {
             user = new User();
             user.setUsername(i + "");
             user.setPassword(DigestUtils.md5Hex(i + ""));
-            userRepository.save(user);
+            // userRepository.save(user);
         }
 
     }

@@ -4,8 +4,18 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 
 @Entity
+// 声明存储过程
+@NamedStoredProcedureQuery(name = "executeSeckill", procedureName = "execute_seckill", parameters = {
+        @StoredProcedureParameter(mode = ParameterMode.IN, name = "v_id", type = String.class),
+        @StoredProcedureParameter(mode = ParameterMode.IN, name = "v_kill_product_id", type = String.class),
+        @StoredProcedureParameter(mode = ParameterMode.IN, name = "v_mobile", type = String.class),
+        @StoredProcedureParameter(mode = ParameterMode.IN, name = "v_kill_time", type = Date.class),
+        @StoredProcedureParameter(mode = ParameterMode.OUT, name = "r_result", type = Integer.class) })
 public class KillItem extends BaseEntity {
 
     /**
