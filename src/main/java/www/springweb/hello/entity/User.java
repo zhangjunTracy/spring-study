@@ -3,6 +3,7 @@ package www.springweb.hello.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 /**
  * @author:Json 2015年9月30日下午5:11:14
@@ -22,6 +23,19 @@ public class User extends BaseEntity {
 
     @Column
     private String mobile;
+
+    // 乐观锁 会根据版本进行判定 版本号
+    @Version
+    @Column
+    private Integer version;
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 
     public String getMobile() {
         return mobile;
@@ -45,6 +59,12 @@ public class User extends BaseEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User [username=" + username + ", password=" + password + ", mobile=" + mobile + ", version=" + version
+                + "]";
     }
 
 }
