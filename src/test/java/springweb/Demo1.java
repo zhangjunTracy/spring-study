@@ -1,18 +1,25 @@
 package springweb;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Demo1 {
     public static void main(String[] args) {
 
-        LocalDate STARTDATE = LocalDate.of(2018, 4, 10);
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(1);
+        list.add(2);
 
-        LocalDate ENDDATE = LocalDate.of(2018, 5, 11);
+        Integer[] strings = new Integer[list.size()];
+        for (int j = 0; j < list.size(); j++) {
+            strings[j] = j;
+        }
 
-        LocalDate nDate = LocalDate.of(2018, 5, 11);
+        // list.toArray(strings);
 
-        System.out.println(nDate.isAfter(STARTDATE));
-        System.out.println(nDate.isBefore(ENDDATE));
+        for (Integer integer : strings) {
+            System.out.println(integer);
+        }
 
     }
 
