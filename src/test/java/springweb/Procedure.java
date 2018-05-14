@@ -2,7 +2,6 @@ package springweb;
 
 import java.util.Date;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +16,7 @@ public class Procedure {
     @Autowired
     private KillItemRepository killItemRepository;
 
-    @Test
+    // @Test
     public void test() {
 
         Integer integer = killItemRepository.explicitlyNamedPlus1inout("1", "10", "13552960783", new Date());
@@ -26,4 +25,44 @@ public class Procedure {
 
     }
 
+    public static void main(String[] args) {
+        // Integer aa = 1;
+        // String aa = "Hello";
+        // func(aa);
+        // System.out.println(aa);
+        Person zhangsan = new Person("ZHANG San");
+        changePerson(zhangsan);
+        zhangsan.printName();
+    }
+
+    public static int func(Integer a) {
+        a = a + 1;
+        return a;
+    }
+
+    public static String func(String a) {
+        a = "hello";
+        return a;
+    }
+
+    public static void changePerson(Person person) {
+        // person = new Person("LI Si");
+        person.changeName("dd");
+    }
+}
+
+class Person {
+    String name = "default";
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public void changeName(String name) {
+        this.name = name;
+    }
+
+    void printName() {
+        System.out.println(this.name);
+    }
 }
