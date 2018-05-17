@@ -7,10 +7,6 @@ public class Demo1 {
     public static void main(String[] args) {
 
         List<Integer> list = new ArrayList<Integer>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(1);
 
         List<Integer> list2 = new ArrayList<Integer>();
         list2.add(1);
@@ -22,9 +18,11 @@ public class Demo1 {
         list3.add(22);
         list3.add(43);
 
-        // list.retainAll(list2);
+        list.retainAll(list2);
+        //
         // list.retainAll(list3);
-        list.removeAll(list2);
+
+        // list.removeAll(list2);
         // System.out.println(list);
         System.out.println(list);
 

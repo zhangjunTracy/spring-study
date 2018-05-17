@@ -2,7 +2,8 @@ package springweb;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.time.temporal.ChronoUnit;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,12 +11,22 @@ import java.util.List;
 public class Demo2 {
 
     public static void main(String[] args) throws Exception {
+        //
+        // System.out.println(String.format("ddddc and dd='%s'", "1dd1"));
+        //
+        // Long now = new Date().getTime() - 1000 * 60 * 60 * 60 * 24;
+        // long between = ChronoUnit.YEARS.between(new Date(now).toInstant(),
+        // new Date().toInstant());
+        // System.out.println(between);
 
-        System.out.println(String.format("ddddc and dd='%s'", "1dd1"));
+        Date date = new Date();
 
-        Long now = new Date().getTime() - 1000 * 60 * 60 * 60 * 24;
-        long between = ChronoUnit.YEARS.between(new Date(now).toInstant(), new Date().toInstant());
-        System.out.println(between);
+        DateFormat bf = new SimpleDateFormat("yyyyMMdd");
+
+        String string = bf.format(date);
+
+        System.out.println(date);
+
         // System.out.println(s.);
         // System.out.println(e);
         // Integer sDate =
