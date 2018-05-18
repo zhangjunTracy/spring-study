@@ -17,7 +17,7 @@ public class BlockingQueueDemo {
 
     @Test
     public void test() {
-        BlockingQueue<Integer> queue = new LinkedBlockingDeque<Integer>(5);
+        BlockingQueue<Integer> queue = new LinkedBlockingDeque<Integer>(100);
 
         ExecutorService executorService = Executors.newFixedThreadPool(20);
 
