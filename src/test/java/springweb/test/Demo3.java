@@ -20,10 +20,10 @@ public class Demo3 {
         set.add(person);
         set.add(person2);
         System.out.println(set.size());
+        System.out.println(set.toString());
 
         Map<String, String> map = new HashMap<String, String>();
         map.put("dd", "ddd");
-        map.put("dd", "dd");
         map.put("dd", "dd");
         System.out.println(map.toString());
 
