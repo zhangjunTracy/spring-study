@@ -1,8 +1,8 @@
 package jun;
 
-<<<<<<< HEAD
 import org.junit.Test;
 
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +17,26 @@ import static java.util.stream.IntStream.range;
 
 
 public class Test2 {
+
+
+    @Test
+    public void test3(){
+        int num1 = 7;
+
+        int num2 = 9;
+
+        // 创建一个数值格式化对象
+
+        NumberFormat numberFormat = NumberFormat.getInstance();
+
+        // 设置精确到小数点后2位
+
+        numberFormat.setMaximumFractionDigits(2);
+
+        String result = numberFormat.format((float) num1 / (float) num2 * 100);
+
+        System.out.println("num1和num2的百分比为:" + result + "%");
+    }
 
 
    // @Test
@@ -44,34 +64,4 @@ public class Test2 {
         System.out.println("" +keywords.stream().reduce(false, (b, keyword) -> b || tweet.contains(keyword), (l, r) -> l || r));
     }
 
-    @Test
-    public  void test2(){
-
-        int[] ints = range(1, 5).toArray();
-        System.out.println(ints.length);
-        range(1, 5).boxed().map(i -> { System.out.print("Happy Birthday "); if (i == 3) return "dear NAME"; else return "to You"; }).forEach(System.out::println);
-=======
-import java.text.NumberFormat;
-
-public class Test2 {
-
-    public static void main(String[] args) {
-        int num1 = 7;
-
-        int num2 = 9;
-
-        // 创建一个数值格式化对象
-
-        NumberFormat numberFormat = NumberFormat.getInstance();
-
-        // 设置精确到小数点后2位
-
-        numberFormat.setMaximumFractionDigits(2);
-
-        String result = numberFormat.format((float) num1 / (float) num2 * 100);
-
-        System.out.println("num1和num2的百分比为:" + result + "%");
-
->>>>>>> 9389f7897bd3e68ce2aea46e5bf95493daaaf0ce
-    }
 }
