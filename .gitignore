@@ -15,3 +15,9 @@ hs_err_pid*
 *.classpath
 *.project
 *.tern-project
+.idea
+*.iws
+*.iml
+*.ipr
+.target
+/.idea/
