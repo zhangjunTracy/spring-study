@@ -16,3 +16,9 @@ hs_err_pid*
 *.project
 *.tern-project
 /.idea/
+
+.idea
+*.iws
+*.iml
+*.ipr
+.target
