@@ -6,7 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-@ServletComponentScan
+// @ServletComponentScan
 @SpringBootApplication
 @EnableAspectJAutoProxy
 public class Application extends org.springframework.boot.web.support.SpringBootServletInitializer {
