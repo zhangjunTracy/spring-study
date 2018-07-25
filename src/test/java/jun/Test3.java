@@ -44,6 +44,7 @@ public class Test3 {
     //@Test
     public void test1() {
         //http://cnstatic01.e.vhall.com/jssdk/dist/2.3.3/index.html?app_key=b609b31e4d96c623b793b617d7f6c8af&signedat=1530521746626&sign=a8b9228b5c1dfac6aa04729b23367aa6&email=98795252@qq.com&id=732453975&account=28318437&username=afadsf
+        //https://api.app.cheerspublishing.com/live/new_file.html?app_key=b609b31e4d96c623b793b617d7f6c8af&signedat=1532413212721&sign=637c866f2b8d7605a43109a917018bd3&email=oEPQe5fWvWf3NqGtHiPYBG-eXIKM@qq.com&id=671786447&account=29308839&username=%E5%A6%82%E6%9E%9C%E5%8F%AF%E4%BB%A5
         Long time = new Date().getTime();
         System.out.println(time + "");
         SortedMap<String, String> map = new TreeMap<>();
@@ -65,6 +66,46 @@ public class Test3 {
 
     }
 
+
+
+
+    @Test
+    public void test9() {
+        //http://cnstatic01.e.vhall.com/jssdk/dist/2.3.3/index.html?app_key=b609b31e4d96c623b793b617d7f6c8af&signedat=1530521746626&sign=a8b9228b5c1dfac6aa04729b23367aa6&email=98795252@qq.com&id=732453975&account=28318437&username=afadsf
+        //https://api.app.cheerspublishing.com/live/new_file.html?
+        // app_key=b609b31e4d96c623b793b617d7f6c8af
+        // &signedat=1532413212721
+        // &sign=637c866f2b8d7605a43109a917018bd3
+        // &email=oEPQe5fWvWf3NqGtHiPYBG-eXIKM@qq.com
+        // &id=671786447&account=29308839&username=%E5%A6%82%E6%9E%9C%E5%8F%AF%E4%BB%A5
+        Long time = new Date().getTime();
+        System.out.println(time + "");
+        SortedMap<String, String> map = new TreeMap<>();
+        map.put("roomid", "671786447");
+        map.put("account", "28382602");
+        map.put("username", "如果可以");
+        map.put("signedat", time + "");
+        map.put("app_key", "b609b31e4d96c623b793b617d7f6c8af");
+        map.put("email", "oEPQe5fWvWf3NqGtHiPYBG-eXIKM@qq.com");
+        StringBuffer stringBuffer = new StringBuffer("653507e1c6c73edfe8331989173e1a75");
+        for (String s : map.keySet()) {
+            stringBuffer.append(s);
+            stringBuffer.append(map.get(s));
+        }
+        stringBuffer.append("653507e1c6c73edfe8331989173e1a75");
+        System.out.println(stringBuffer.toString());
+        String md5Hex = DigestUtils.md5Hex(stringBuffer.toString());
+        System.out.println(md5Hex);
+        String str="https://api.app.cheerspublishing.com/live/new_file.html?app_key=b609b31e4d96c623b793b617d7f6c8af";
+        str+="&signedat="+time;
+        str+="&sign="+md5Hex;
+        str+="&email="+map.get("email");
+        str+="&id="+map.get("roomid");
+        str+="&account="+map.get("account");
+        str+="&username="+map.get("username");
+        System.out.println(str);
+
+    }
     // @Test
     public void test2() {
 
