@@ -1,5 +1,6 @@
 package jun;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
@@ -12,6 +13,8 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.BitSet;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -24,20 +27,21 @@ public class Test6 {
 
 
     //@Test
-    public  void test1() throws  Exception{
+    public void test1() throws Exception {
         String path = "/home/zj/x.json";
         ObjectMapper objectMapper = new ObjectMapper();
 
-        File file=new File(path);
+        File file = new File(path);
 
-        List<Xie> list=objectMapper.readValue(file,new TypeReference<List<Xie>>(){});
+        List<Xie> list = objectMapper.readValue(file, new TypeReference<List<Xie>>() {
+        });
         System.out.println(list.size());
         for (Xie xie : list) {
             System.out.println(xie);
         }
 
 
-       // Map<String, List<Object>> result = objectMapper.readValue(Test6.class.getResource(path),new TypeReference<Map<String, List<Object>>>() {});
+        // Map<String, List<Object>> result = objectMapper.readValue(Test6.class.getResource(path),new TypeReference<Map<String, List<Object>>>() {});
 
 //        URL url = Test6.class.getResource(path);
 //
@@ -49,27 +53,27 @@ public class Test6 {
 //        }
     }
 
-    @Test
-    public  void test2() {
-        String mobile="135";
-        StringBuffer pa=new StringBuffer("{");
-         pa.append("\"account_type\"");
-         pa.append(":");
-         pa.append("\"Mobile\"");
-         pa.append(",");
-         pa.append("\"account_id\"");
-         pa.append(":");
-         pa.append("\"");
-         pa.append(mobile);
-         pa.append("\"");
-         pa.append("}");
+    //@Test
+    public void test2() {
+        String mobile = "135";
+        StringBuffer pa = new StringBuffer("{");
+        pa.append("\"account_type\"");
+        pa.append(":");
+        pa.append("\"Mobile\"");
+        pa.append(",");
+        pa.append("\"account_id\"");
+        pa.append(":");
+        pa.append("\"");
+        pa.append(mobile);
+        pa.append("\"");
+        pa.append("}");
         System.out.println(pa.toString());
 
 
-        params params=new params();
+        params params = new params();
         params.setAccount_id("135");
         params.setAccount_type("dd");
-        ObjectMapper objectMapper=new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper();
         String s = null;
         try {
             s = objectMapper.writeValueAsString(params);
@@ -80,6 +84,33 @@ public class Test6 {
 
     }
 
+    @Test
+    public void test3() throws Exception {
+//        int [] array = new int [] {1,2,3,22,0,3};
+//        BitSet bitSet  = new BitSet(6);
+//        //将数组内容组bitmap
+//        for(int i=0;i<array.length;i++)
+//        {
+//            bitSet.set(array[i], true);
+//        }
+//        System.out.println(bitSet.length());
+//        System.out.println(bitSet.size());
+//        System.out.println(bitSet.get(21));
+
+        System.out.println(128>>6);
+    }
+}
+@JsonIgnoreProperties(ignoreUnknown=true)
+class message{
+    private String 手机号;
+
+    public String get手机号() {
+        return 手机号;
+    }
+
+    public void set手机号(String 手机号) {
+        this.手机号 = 手机号;
+    }
 }
 
 class params{

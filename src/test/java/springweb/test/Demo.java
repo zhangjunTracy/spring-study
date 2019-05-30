@@ -26,7 +26,7 @@ public class Demo {
         BaseClass[] baseArray = subArray;
         // 运行时获得
         // System.out.println(baseArray.getClass());
-        // baseArray[0] = new BaseClass();
+         //baseArray[0] = new BaseClass();
 
         // java.util.Arrays.ArrayList
         List<String> list = Arrays.asList("abc");
